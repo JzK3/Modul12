@@ -18,19 +18,37 @@
                       new User("Bb","take it away Walter",false),
                   };
             Greetings(users);
-
         }
 
         public static void Greetings(List<User> users)
         {
-            foreach (var user in users) 
+            while (true)
             {
-                Console.WriteLine($"Мой дорогой {user.Name}, рад тебя видеть!");
-                if (!user.IsPremium)
+                Console.Write("Введите ваш логин - ");
+                string log = Console.ReadLine();
+                for (int i = 0; i < users.Count; i++)
                 {
-                    User.ShowAds();
+                    if (log==users[i].Login)
+                    {
+                        Console.WriteLine($"Мой дорогой {users[i].Name}, рад тебя видеть!");
+                        if (!users[i].IsPremium)
+                        {
+                            User.ShowAds();
+                        }
+                    }
                 }
             }
+
+            //foreach (var user in users) 
+            //{
+            //    {
+            //        Console.WriteLine($"Мой дорогой {user.Name}, рад тебя видеть!");
+            //        if (!user.IsPremium)
+            //        {
+            //            User.ShowAds();
+            //        }
+            //    }
+            //}
         }
     }
 }
